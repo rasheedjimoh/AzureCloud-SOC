@@ -3,13 +3,46 @@
 
 ## Introduction
 
-In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
+This project involves implementing a comprehensive Security Information and Event Management (SIEM) system in Microsoft Azure concurrently deploying a honeynet. The SIEM system enables the Security Operations Center (SOC) to thoroughly monitor logs and track login activities to detect security threats in real time. By integrating insights from the honeynet and SIEM, the SOC can proactively identify and mitigate cybersecurity incidents, enhancing its defence mechanism. The honeynet will be intentionally exposed to the internet for 24 hours to capture real-world attacker traffic, contributing valuable data to refine cybersecurity defences. After the initial 24 hours, security controls will be implemented to fortify the environment. A subsequent 24-hour monitoring phase will compare incident rates, assessing the mitigation achieved through enhanced security measures.
+
+By the project's conclusion, we will develop a heat map to visually represent the sources of incoming attacks.
+
+Key metrics for analysis include:
 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
 - SecurityAlert (Log Analytics Alerts Triggered)
 - SecurityIncident (Incidents created by Sentinel)
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
+  
+## Technologies
+- Azure Virtual Network(VNet)
+- Azure Virtual Machines(Windows and Linux OS VM)
+- Microsoft SQL Server
+- Network Security Group(NSG)
+- Microsoft Sentinel
+- Entra ID/Azure Active Directory
+- Log Analytics Workspace(LAW)
+- Azure Storage Account
+- Azure Key Vault
+- Microsoft Defender for Cloud
+- Remote Desktop Protocol(RDP) for Windows Remote access control
+- Command Line Interface/SecureShell(SSH) for Linux Remote Server Management
+- PowerShell for Automation
+- KQL(Kusto Query Language) for data query and analysis
+- Azure Private Link - for security
+- Azure Monitor
+
+## Regulations
+<a href="https://csrc.nist.gov/pubs/sp/800/37/r2/final">NIST 800-37 for Risk Management Framework	</a>
+
+<a href="https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#/families?version=5.1">NIST 800-53 for Security and Privacy Controls</a>
+
+<a href="https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final">NIST 800-61 for Incident Handling</a>
+
+![NIST-800-61-Incident Management](https://github.com/rasheedjimoh/AzureCloud-SOC/assets/157264080/cc4559f9-8467-4481-b91d-7d9e615cef44)
+
+
 
 ## Architecture Before Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
@@ -32,9 +65,11 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
+![NSG Allowed Inbound Malicious Flows](https://imgur.com/ri2jWvV)<br>
 ![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
 ![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+
+
 
 ## Metrics Before Hardening / Security Controls
 
