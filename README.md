@@ -1,4 +1,4 @@
-# Real-Time Azure Defense SOC
+# Honeynet: Real-Time Azure Defense SOC
 ![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
 
 ## Introduction
