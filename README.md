@@ -34,6 +34,8 @@ Key metrics for analysis include:
 - Azure Monitor
 
 ## Regulations
+Regulatory compliance is crucial in IT and security for legal adherence, data protection, and trust. It ensures strong cybersecurity practices, mitigates risks, and avoids legal consequences, fostering a secure and trustworthy environment.
+
 <a href="https://csrc.nist.gov/pubs/sp/800/37/r2/final">NIST 800-37 for Risk Management Framework	</a>
 
 <a href="https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#/families?version=5.1">NIST 800-53 for Security and Privacy Controls</a>
@@ -49,7 +51,7 @@ All the resources were deployed with direct exposure to the internet. The Virtua
 ![Architecture Diagram](https://i.imgur.com/Z6Tr6OH.png)
 
 ## Remediation process using NIST 800-61 Incident Handling Guide
-We implement SC-7 Control of NIST 800-53 by doing the following:
+We implemented SC-7 Control of NIST 800-53 by doing the following:
 
 1. Network Security Groups (NSG): Restrict traffic exclusively to your admin workstation.
 2. Built-in Firewall of Resources: Implement additional security layers. For Windows, Windows Defender Firewall has been implemented.
