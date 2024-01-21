@@ -45,31 +45,27 @@ Key metrics for analysis include:
 
 
 ## Architecture Before Hardening / Security Controls
-Initially, all the resources were deployed with direct exposure to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open. Similarly, all other resources were also deployed with public endpoints that were visible to the internet. As a result, there was no need for Private Endpoints.
+All the resources were deployed with direct exposure to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open. Similarly, all other resources were also deployed with public endpoints that were visible to the internet. As a result, there was no need for Private Endpoints.
 ![Architecture Diagram](https://i.imgur.com/Z6Tr6OH.png)
 
+## Remediation process using NIST 800-61 Incident Handling Guide
+We implement SC-7 Control of NIST 800-53 by doing the following:
+
+1. Network Security Groups (NSG): Restrict traffic exclusively to your admin workstation.
+2. Built-in Firewall of Resources: Implement additional security layers. For Windows, Windows Defender Firewall has been implemented.
+3. Private Endpoints: Incorporate into your network architecture for augmented protection.
+4. Network Security Groups (NSG) for Subnet: Add to the subnet to further fortify security measures.
+5. Activated and enabled NIST Compliance in Azure.
+
 ## Architecture After Hardening / Security Controls
-We improved the security by making our Network Security Groups stronger, which means only traffic from my admin workstation is allowed. Additionally, we added more layers of protection by utilizing the built-in firewalls of our resources, integrating Private Endpoints and adding NSG to the subnet as shown below. This proactive approach ensures that we have a higher level of security and protection against potential threats.
+All resources are protected, as illustrated below, with an added layer of security from the Network Security Group (NSG) attached to the subnet.
 ![Architecture Diagram](https://i.imgur.com/vvbiDo9.png)
 
-The architecture of the mini honeynet in Azure consists of the following components:
-
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
-
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
-
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://imgur.com/ri2jWvV)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/8Lf2sxY.png)<br>
+![Linux Syslog Auth Failures](https://i.imgur.com/BgJg9Jr.png)<br>
+![Windows RDP/SMB Auth Failures](https://i.imgur.com/aIlLyxn.png)<br>
 
 
 
@@ -89,24 +85,26 @@ Stop Time 2024-01-19 11:07:47
 
 ## Attack Maps After Hardening / Security Controls
 
-```All map queries returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
+```All map queries returned no results due to no instances of malicious activity for the 24 hours after hardening.```
 
 ## Metrics After Hardening / Security Controls
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+The following table shows the metrics we measured in our environment for another 24 hours, but after we applied security controls:
+Start Time 2024-01-20 06:05:28
+Stop Time	2024-01-21 06:05:28
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
+| SecurityEvent            | 5508
+| Syslog                   | 5
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
 
 ## Conclusion
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+In conclusion, the impact of our security enhancements is evident in the substantial improvements across key metrics. Strengthening our security framework resulted in an 81.73% decrease in security events for Windows VMs and a 99.85% reduction in syslog events for Linux VMs. Remarkably, security alerts from Microsoft Defender for Cloud and security incidents in Sentinel Incidents showed a 100% elimination. The mitigation of NSG inbound malicious flows allowed demonstrated a robust 100% reduction, highlighting the efficacy of our proactive security approach.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+Throughout the project, we implemented a mini honeynet in Microsoft Azure, integrating log sources into a Log Analytics workspace. Microsoft Sentinel was leveraged to trigger alerts and create incidents based on ingested logs. Metric evaluations before and after the application of security controls showed a significant reduction in security events and incidents, showcasing the tangible effectiveness of these measures.
+
+It's crucial to acknowledge that if network resources were heavily utilized by regular users, there could have been an increase in security events and alerts within the 24 hours following the implementation of security controls. These outcomes affirm the success of our security enhancements, ensuring a more resilient and fortified digital environment.
