@@ -1,5 +1,5 @@
 # Honeynet: Real-Time Azure Cloud Defense SOC
-![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
+![Cloud Honeynet / SOC](https://i.imgur.com/M97KMNu.jpg)
 
 ## Introduction
 
@@ -51,7 +51,7 @@ All the resources were deployed with direct exposure to the internet. The Virtua
 ![Architecture Diagram](https://i.imgur.com/Z6Tr6OH.png)
 
 ## Remediation process using NIST 800-61 Incident Handling Guide
-We implemented SC-7 Control of NIST 800-53 by doing the following:
+We implemented SC-7 Boundary Protection Control of NIST 800-53 by doing the following:
 
 1. Network Security Groups (NSG): Restrict traffic exclusively to your admin workstation.
 2. Built-in Firewall of Resources: Implement additional security layers. For Windows, Windows Defender Firewall has been implemented.
