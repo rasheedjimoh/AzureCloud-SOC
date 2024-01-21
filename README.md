@@ -45,10 +45,12 @@ Key metrics for analysis include:
 
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+Initially, all the resources were deployed with direct exposure to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open. Similarly, all other resources were also deployed with public endpoints that were visible to the internet. As a result, there was no need for Private Endpoints.
+![Architecture Diagram](https://i.imgur.com/Z6Tr6OH.png)
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+We improved the security by making our Network Security Groups stronger, which means only traffic from my admin workstation is allowed. Additionally, we added more layers of protection by utilizing the built-in firewalls of our resources, integrating Private Endpoints and adding NSG to the subnet as shown below. This proactive approach ensures that we have a higher level of security and protection against potential threats.
+![Architecture Diagram](https://i.imgur.com/vvbiDo9.png)
 
 The architecture of the mini honeynet in Azure consists of the following components:
 
