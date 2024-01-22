@@ -11,9 +11,9 @@ Key metrics for analysis include:
 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
-- SecurityAlert (Log Analytics Alerts Triggered)
+- SecurityAlert (Log Analytics Workspace Alerts Triggered)
 - SecurityIncident (Incidents created by Sentinel)
-- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
+- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet/Network Security Groups logs)
   
 ## Technologies
 - Azure Virtual Network(VNet)
