@@ -1,6 +1,6 @@
 # Honeynet: Real-Time Azure Cloud Defense SOC
 
-# Infrastructure
+# Infrastructure Architectural Diagram
 ![architect1](https://github.com/user-attachments/assets/9eec6476-ec9e-4aac-a3a6-0cf8c7eca70f)
 
 
